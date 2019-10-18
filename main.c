@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/16 18:16:08 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/18 14:10:54 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int main(int ac, char **av)
 	}
 	fprintf(stderr, "ficher ouvert, gg, fd: %d\n", fd);
 	str = parse_test(fd, buff);
-	nbline = nbline + get_next_line(fd, line);
+	nbline = nbline + get_next_line(fd, &line);
 }
