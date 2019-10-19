@@ -6,13 +6,13 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:24:32 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 16:57:23 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/19 19:27:17 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 10
+# define BUFFER_SIZE 500
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -31,5 +31,6 @@ char	*ft_strncat(char *dest, char const *src, size_t nb);
 char	*ft_strdup(char const *src);
 char	*ft_strchr(const char *s, int c);
 size_t	*ft_strchr_id(const char *s, int c, size_t n);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
 #endif
