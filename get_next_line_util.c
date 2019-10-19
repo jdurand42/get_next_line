@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 17:09:30 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/19 17:44:46 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,26 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	b[0] = 0;
 	ft_strcat_bonus(b, s1);
 	ft_strcat_bonus(b, s2);
+	return (b);
+}
+
+char		*ft_strnnjoin(char const *s1, char const *s2, size_t n, size_t n2)
+{
+	unsigned int	megasize;
+	char			*b;
+
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	else if (!s2 && s1)
+		return (ft_strdup(s1));
+	else if (!s1 && !s2)
+		return (NULL);
+	megasize = ft_strlen(s1) + ft_strlen(s2);
+	if (!(b = (char *)malloc((megasize + 1) * sizeof(char))))
+		return (NULL);
+	b[0] = 0;
+	ft_strncat(b, s1, n);
+	ft_strncat(b, s2, n);
 	return (b);
 }
 

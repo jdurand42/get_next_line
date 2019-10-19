@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 17:19:24 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/19 17:45:38 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_next_line(int fd, char **line)
 	char		*s;
 	int 		ret;
 	size_t 		i;
-	char 		*bufer_el;
+	char 		*buffer_el;
 	char 		*line_el;
 	//char		*line_buffer;
 	static char		buffer[BUFFER_SIZE + 1];
@@ -53,7 +53,7 @@ int	get_next_line(int fd, char **line)
 				if (!line_el)
 					*line = ft_strnjoin(*line, buffer, buffer_el - buffer);
 				else if (line_el)
-					*line = ft_strnnjoin(*line , buffer, line_el - line, buffer_el - buffer);
+					*line = ft_strnnjoin(*line , buffer, line_el - *line, buffer_el - buffer);
 				return (1);
 			}
 			else if (!buffer_el)
