@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 16:57:45 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/19 17:09:30 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*ft_strrchr(const char *s, int c)
 	else
 		return (NULL);
 }
-
 
 char	*ft_strcat_bonus(char *dest, char const *src)
 {

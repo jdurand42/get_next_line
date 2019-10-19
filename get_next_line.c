@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 17:04:30 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/19 17:19:24 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,22 @@ int	get_next_line(int fd, char **line)
 		{
 			buffer[ret] = 0;
 			i = 0;
-			j = 0;
-	//		printf("ret: %d, buffer in beg_read_loop: %s\n", ret, buffer);
-			while (buffer[i] != 0 && buffer[i] != '\n')
-				i++;
-			if (buffer[i] == '\n') // We got a line;
+			line_el = NULL;
+			buffer_el = NULL;
+			buffer_el = ft_strchr(buffer, '\n');
+			if (*line)
+				line_el = ft_strchr(*line, '\n');
+			if (buffer_el)
 			{
-				if(!(*line = ft_strnjoin(*line, buffer, i)))
-					return (-1);
+				if (!line_el)
+					*line = ft_strnjoin(*line, buffer, buffer_el - buffer);
+				else if (line_el)
+					*line = ft_strnnjoin(*line , buffer, line_el - line, buffer_el - buffer);
 				return (1);
 			}
-			*line = ft_strjoin(*line, buffer); // ca marche si BUFFER_SIZE < nb char de line
+			else if (!buffer_el)
+				*line = ft_strjoin(*line, buffer);
+		 // ca marche si BUFFER_SIZE < nb char de line
 //			printf("line in endloop: %s\n", *line);
 		}
 	return (0);
