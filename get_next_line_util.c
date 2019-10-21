@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 13:18:57 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 14:47:56 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,7 @@ size_t	ft_strlen(char const *str)
 	return (len);
 }
 
-char	*ft_strrchr(const char *s, int c)
-{
-	char			*str;
-	char			pc;
-	unsigned int	len;
-
-	pc = (char)c;
-	str = (char *)s;
-	len = ft_strlen(s);
-	while (len && str[len] != pc)
-		len--;
-	if (str[len] == pc)
-		return (&str[len]);
-	else
-		return (NULL);
-}
-
-
-char	*ft_strcat_bonus(char *dest, char const *src)
+char	*ft_strcat(char *dest, char const *src)
 {
 	unsigned int i;
 	unsigned int j;
@@ -102,8 +84,8 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	if (!(b = (char *)malloc((megasize + 1) * sizeof(char))))
 		return (NULL);
 	b[0] = 0;
-	ft_strcat_bonus(b, s1);
-	ft_strcat_bonus(b, s2);
+	ft_strcat(b, s1);
+	ft_strcat(b, s2);
 	return (b);
 }
 
@@ -127,47 +109,6 @@ char	*ft_strncat(char *dest, char const *src, size_t nb)
 	dest[i] = '\0';
 	return (dest);
 }
-/*
-size_t		*ft_strchr_id(const char *s, int c)
-{
-	unsigned char*	ps;
-	unsigned char	pc;
-	size_t			id;
-
-	if (!s)
-		return (0);
-	ps = (unsigned char *)ps;
-	pc = (unsigned char)c;
-	id = 0;
-	while (ps[id])
-	{
-		if (ps[id] == pc)
-			return (id + 1);
-		id++;
-	}
-	return (0);
-}*/
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (i < n && n > 0)
-	{
-		while (src[i] != '\0' && i < n)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		while (i < n)
-		{
-			dest[i] = '\0';
-			i++;
-		}
-	}
-	return (dest);
-}
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -180,6 +121,7 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = 0;
 	return (dest);
 }
 
@@ -198,10 +140,7 @@ char	*ft_strchr(const char *s, int c)
 			return (&str[i]);
 		i++;
 	}
-	if (str[i] == 0 && pc == 0)
-		return (NULL);
-	else
-		return (str);
+	return (NULL);
 }
 
 char		*ft_strnjoin(char const *s1, char const *s2, size_t n)
@@ -219,7 +158,7 @@ char		*ft_strnjoin(char const *s1, char const *s2, size_t n)
 	if (!(b = (char *)malloc((megasize + 1) * sizeof(char))))
 		return (NULL);
 	b[0] = 0;
-	ft_strcat_bonus(b, s1);
+	ft_strcat(b, s1);
 	ft_strncat(b, s2, n);
 	return (b);
 }
