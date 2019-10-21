@@ -6,27 +6,46 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 15:00:39 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 15:29:39 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+
 int main(int ac, char **av)
 {
 	int 	fd;
+	int 	fd2;
+	int 	fd3;
+	int		fd4;
 	char 	*line;
 	char 	*str;
 	char	buff[BUFFER_SIZE];
 	int 	nbline = 0;
 
-	line = NULL;
+	//fprintf(stderr, "BUFFER_SIZE: %d\n", BUFFER_SIZE);
 	if ((fd = open("lorem.txt", O_RDONLY)) < 0)
 	{
 		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
 		return (0);
 	}
-	fprintf(stderr, "ficher ouvert, gg, fd: %d\n", fd);
+	if ((fd2 = open("empty.txt", O_RDONLY)) < 0)
+	{
+		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
+		return (0);
+	}
+	if ((fd3 = open("test_folder", O_RDONLY)) < 0)
+	{
+		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
+		return (0);
+	}
+	if ((fd4 = open("bible.txt", O_RDONLY)) < 0)
+	{
+		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
+		return (0);
+	}
+	//fprintf(stderr, "ficher ouvert, gg, fd: %d\n", fd4);
 	while ((nbline = get_next_line(fd, &line) == 1))
 	{
 		printf("%d\n", nbline);
