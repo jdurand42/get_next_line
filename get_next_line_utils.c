@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 16:43:04 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 18:53:49 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strcat(char *dest, char const *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
+/*
 char	*ft_strdup(char const *src)
 {
 	unsigned int	len;
@@ -67,8 +67,8 @@ char	*ft_strdup(char const *src)
 		dest[i] = '\0';
 		return (dest);
 	}
-}
-
+}*/
+/*
 char		*ft_strjoin(char const *s1, char const *s2)
 {
 	unsigned int	megasize;
@@ -87,7 +87,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	ft_strcat(b, s1);
 	ft_strcat(b, s2);
 	return (b);
-}
+}*/
 
 char	*ft_strncat(char *dest, char const *src, size_t nb)
 {
@@ -151,7 +151,7 @@ char		*ft_strnjoin(char const *s1, char const *s2, size_t n)
 	if (!s1 && s2)
 		return (ft_strndup(s2, n));
 	else if (!s2 && s1)
-		return (ft_strdup(s1));
+		return (ft_strndup(s1, ft_strlen(s1)));
 	else if (!s1 && !s2)
 		return (NULL);
 	megasize = ft_strlen(s1) + n;

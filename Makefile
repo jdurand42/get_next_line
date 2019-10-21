@@ -6,7 +6,7 @@
 #    By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 13:11:36 by jdurand           #+#    #+#              #
-#    Updated: 2019/10/21 16:39:47 by jdurand          ###   ########.fr        #
+#    Updated: 2019/10/21 18:38:27 by jdurand          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	$(wildcard *.c)
 RM		=	rm -f
 
 all		:
-			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=32 $(SRCS)
+			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=25 $(SRCS)
 
 clean	:
 			$(RM) $(wildcard *.o)
