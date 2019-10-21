@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 18:44:29 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 13:18:57 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,20 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
+char	*ft_strcpy(char *dest, char *src)
+{
+	unsigned int	i;
+
+	i = 0;
+
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned int	i;
@@ -181,11 +195,11 @@ char	*ft_strchr(const char *s, int c)
 	while (str[i] != 0)
 	{
 		if (str[i] == pc)
-			return (&str[i + 1]);
+			return (&str[i]);
 		i++;
 	}
 	if (str[i] == 0 && pc == 0)
-		return (&str[i]);
+		return (NULL);
 	else
 		return (str);
 }
