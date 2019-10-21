@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/19 17:04:30 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 13:31:49 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ int	get_next_line(int fd, char **line)
 
 	*line = ft_strdup(ft_strchr(buffer, '\n'));
 //	printf("line in begloop: %s\n", *line);
-	if (fd >= 0)
 		while ((ret = read(fd, buffer, BUFFER_SIZE)) > 0)
 		{
 			buffer[ret] = 0;
 			i = 0;
-			j = 0;
 	//		printf("ret: %d, buffer in beg_read_loop: %s\n", ret, buffer);
 			while (buffer[i] != 0 && buffer[i] != '\n')
 				i++;
