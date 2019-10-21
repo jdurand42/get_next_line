@@ -6,23 +6,22 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 15:29:39 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 16:39:33 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 
-int main(int ac, char **av)
+int main()
 {
 	int 	fd;
 	int 	fd2;
 	int 	fd3;
 	int		fd4;
 	char 	*line;
-	char 	*str;
-	char	buff[BUFFER_SIZE];
-	int 	nbline = 0;
+	int		ret_gnl;
+//	int 	choice = 5;
 
 	//fprintf(stderr, "BUFFER_SIZE: %d\n", BUFFER_SIZE);
 	if ((fd = open("lorem.txt", O_RDONLY)) < 0)
@@ -46,9 +45,15 @@ int main(int ac, char **av)
 		return (0);
 	}
 	//fprintf(stderr, "ficher ouvert, gg, fd: %d\n", fd4);
-	while ((nbline = get_next_line(fd, &line) == 1))
+	fprintf(stderr, "BUFFER_SIZE: %d\n", BUFFER_SIZE);
+	printf("type 0 for testing stdin\n");
+//	scanf("%d\n", &choice);
+	//getc(stdin);
+//	if (choice == 0)
+// /		fd = 0;
+	while ((ret_gnl = get_next_line(fd, &line) == 1))
 	{
-		printf("%d\n", nbline);
+		printf("%d\n", ret_gnl);
 		printf("%s\n", line);
 	}
 }

@@ -6,31 +6,32 @@
 #    By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 13:11:36 by jdurand           #+#    #+#              #
-#    Updated: 2019/10/21 15:19:37 by jdurand          ###   ########.fr        #
+#    Updated: 2019/10/21 16:39:47 by jdurand          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	$(wildcard *.c)
 
-OBJS	=	$(SRCS:.c=.o)
-
 RM		=	rm -f
 
-all		:	$(OBJS)
-			gcc -Wall -Wextra -Werror $(OBJS)
+all		:
+			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=32 $(SRCS)
 
 clean	:
-			$(RM) $(OBJS)
+			$(RM) $(wildcard *.o)
 
-fclean	:
-			$(RM) $(OBJS) $(wildcard *.out)
+fclean	:	clean
+			$(RM) $(wildcard *.out)
 
 re		:	fclean all
 
-re sani :	fclean sani
-
-sani	:	$(OBJS)
+sani	:
 			gcc -Wall -Wextra -Werror  \
-			-g3 -fsanitize=address -D BUFFER_SIZE=500 $(OBJS)
+			-g3 -fsanitize=address -D BUFFER_SIZE=5000000 $(SRCS)
+
+exe		:
+			./a.out
+
+re sani :	fclean sani
 
 .PHONY	:	clean fclean all re sani

@@ -6,15 +6,16 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:24:32 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 16:14:09 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 16:18:04 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 150
-# define BUFFER_SIZE
+# endif
 
 # include <stdlib.h>
 # include <stdio.h>
