@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 18:56:04 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/21 19:33:24 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,14 @@ int	get_next_line(int fd, char **line)
 		if (!(b_line = ft_strnjoin(b_line, buffer, BUFFER_SIZE)))
 			return (-1);
 	}
-	if (!(*line = strndup(b_line, ft_strlen(b_line))))
-		return (-1);
+	buffer[0] = 0;
+	if (b_line[0] != 0)
+	{
+		if (!(*line = strndup(b_line, ft_strlen(b_line))))
+			return (-1);
+		free(b_line);
+		return (1);
+	}
+	free(*line);
 	return (0);
 }
