@@ -6,28 +6,19 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/10/21 13:31:49 by jdurand          ###   ########.fr       */
+=======
+/*   Updated: 2019/10/21 14:53:11 by jdurand          ###   ########.fr       */
+>>>>>>> b4
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/*
-char  *parse_test(int fd, char *buffer)
-{
-	int ret;
-	char *str;
-
-	str = NULL;
-	while ((ret = read(fd, buffer, BUFFER_SIZE)) > 0)
-		str = ft_strjoin(str, ft_strndup(buffer, ret));
-	fprintf(stderr, "%s\n", str);
-	return (str);
-}*/
-
-
 
 int	get_next_line(int fd, char **line)
 {
+<<<<<<< HEAD
 	char		*s;
 	int 		ret;
 	size_t 		i;
@@ -53,16 +44,36 @@ int	get_next_line(int fd, char **line)
 			}
 			*line = ft_strjoin(*line, buffer); // ca marche si BUFFER_SIZE < nb char de line
 //			printf("line in endloop: %s\n", *line);
+=======
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*b_line;
+	char		*buffer_el;
+	int			ret;
+
+	b_line = NULL;
+	buffer_el = NULL;
+	if(!(b_line = ft_strdup(buffer)))
+		return (-1);
+	if ((buffer_el = ft_strchr(b_line, '\n')) != NULL)
+	{
+		if(!(*line = ft_strndup(b_line, buffer_el - b_line)))
+			return (-1);
+		ft_strcpy(buffer, buffer_el + 1);
+		return (1);
+	}
+	while ((ret = read(fd, buffer, BUFFER_SIZE)) > 0)
+	{
+		buffer[ret] = 0;
+		if ((buffer_el = ft_strchr(buffer, '\n')) != NULL)
+		{
+			if(!(*line = ft_strnjoin(b_line, buffer, buffer_el - buffer)))
+				return (-1);
+			ft_strcpy(buffer, buffer_el + 1);
+			return (1);
+>>>>>>> b4
 		}
+		if (!(b_line = ft_strjoin(b_line, buffer)))
+			return (-1);
+	}
 	return (0);
 }
-
-
-/*
-Checker d'abord dans une boucle de read jusqu'a;
-checker jusqu'a ret si il y a un \n
-if not
-	reread de BUFFER_SIZE;
-retourner la ligne
-profit
-*/
