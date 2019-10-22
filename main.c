@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 19:32:08 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/22 15:01:58 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 //	int 	choice = 5;
 
 	//fprintf(stderr, "BUFFER_SIZE: %d\n", BUFFER_SIZE);
-	if ((fd = open("lorem3.txt", O_RDONLY)) < 0)
+	if ((fd = open("lorem.txt", O_RDONLY)) < 0)
 	{
 		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
 		return (0);
@@ -51,11 +51,12 @@ int main()
 	//getc(stdin);
 //	if (choice == 0)
 // /		fd = 0;
-	while ((ret_gnl = get_next_line(fd, &line) == 1))
+	while ((ret_gnl = get_next_line(fd4, &line) == 1))
 	{
 		printf("%d\n", ret_gnl);
 		printf("%s\n", line);
+		;
 	}
-	printf("%d\n", ret_gnl);
-	printf("%s", line);
+	//printf("%d\n", ret_gnl);
+	//printf("%s", line);
 }

@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 18:53:49 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/22 14:49:50 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlen(char const *str)
 		len++;
 	return (len);
 }
-
+/*
 char	*ft_strcat(char *dest, char const *src)
 {
 	unsigned int i;
@@ -43,7 +43,7 @@ char	*ft_strcat(char *dest, char const *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
+}*/
 /*
 char	*ft_strdup(char const *src)
 {
@@ -158,7 +158,8 @@ char		*ft_strnjoin(char const *s1, char const *s2, size_t n)
 	if (!(b = (char *)malloc((megasize + 1) * sizeof(char))))
 		return (NULL);
 	b[0] = 0;
-	ft_strcat(b, s1);
+	ft_strncat(b, s1, ft_strlen(s1));
+	free((char*)s1);
 	ft_strncat(b, s2, n);
 	return (b);
 }
