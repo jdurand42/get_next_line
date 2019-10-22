@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:32:08 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/22 14:49:50 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/22 15:14:10 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,71 +23,6 @@ size_t	ft_strlen(char const *str)
 		len++;
 	return (len);
 }
-/*
-char	*ft_strcat(char *dest, char const *src)
-{
-	unsigned int i;
-	unsigned int j;
-
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		j++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}*/
-/*
-char	*ft_strdup(char const *src)
-{
-	unsigned int	len;
-	unsigned int	i;
-	char			*dest;
-
-	i = 0;
-	len = ft_strlen(src);
-	if (!src)
-		return (NULL);
-	if (!(dest = (char*)malloc((len + 1) * sizeof(char))))
-		return (NULL);
-	else
-	{
-		while (src[i] != '\0')
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-		return (dest);
-	}
-}*/
-/*
-char		*ft_strjoin(char const *s1, char const *s2)
-{
-	unsigned int	megasize;
-	char			*b;
-
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	else if (!s2 && s1)
-		return (ft_strdup(s1));
-	else if (!s1 && !s2)
-		return (NULL);
-	megasize = ft_strlen(s1) + ft_strlen(s2);
-	if (!(b = (char *)malloc((megasize + 1) * sizeof(char))))
-		return (NULL);
-	b[0] = 0;
-	ft_strcat(b, s1);
-	ft_strcat(b, s2);
-	return (b);
-}*/
 
 char	*ft_strncat(char *dest, char const *src, size_t nb)
 {
@@ -115,7 +50,6 @@ char	*ft_strcpy(char *dest, char *src)
 	unsigned int	i;
 
 	i = 0;
-
 	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
@@ -125,25 +59,7 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	unsigned int	i;
-	char			pc;
-	char			*str;
-
-	str = (char *)s;
-	i = 0;
-	pc = (char)c;
-	while (str[i] != 0)
-	{
-		if (str[i] == pc)
-			return (&str[i]);
-		i++;
-	}
-	return (NULL);
-}
-
-char		*ft_strnjoin(char const *s1, char const *s2, size_t n)
+char	*ft_strnjoin(char const *s1, char const *s2, size_t n)
 {
 	unsigned int	megasize;
 	char			*b;
