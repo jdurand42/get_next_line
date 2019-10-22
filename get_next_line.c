@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/21 19:16:19 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/22 14:34:24 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ char		*ft_strnjoin(char const *s1, char const *s2, size_t n)
 		return (NULL);
 	b[0] = 0;
 	ft_strcat(b, s1);
+	//free((char*)s1);
 	ft_strncat(b, s2, n);
 	return (b);
 }
@@ -189,6 +190,7 @@ int	parse_line2(char *buffer, char *buffer_el, char **line, char *b_line)
 		return (-1);
 	ft_strcpy(buffer, buffer_el + 1);
 	free(b_line);
+	b_line = NULL;
 	return (1);
 }
 
@@ -198,17 +200,30 @@ int	parse_line(char *buffer, char *buffer_el, char **line, char *b_line)
 		return (-1);
 	ft_strcpy(buffer, buffer_el + 1);
 	free(b_line);
+	b_line = NULL;
+	return (1);
+}
+
+int	parse_line3(char **line, char *b_line)
+{
+	if (!(*line = strndup(b_line, ft_strlen(b_line))))
+		return (-1);
+	free(b_line);
+	b_line = NULL;
 	return (1);
 }
 
 int	get_next_line(int fd, char **line)
 {
 	static char	buffer[BUFFER_SIZE + 1];
+	char		buffer_nul[1];
 	char		*b_line;
 	char		*buffer_el;
 	int			ret;
 
 	if (fd < 0)
+		return (-1);
+	if (read(fd, buffer_nul, 0) < 0)
 		return (-1);
 	if(!(b_line = ft_strndup(buffer, BUFFER_SIZE)))
 		return (-1);
@@ -222,5 +237,10 @@ int	get_next_line(int fd, char **line)
 		if (!(b_line = ft_strnjoin(b_line, buffer, BUFFER_SIZE)))
 			return (-1);
 	}
+	buffer[ret] = 0;
+	if (b_line[0] != 0)
+		return (parse_line3(line, b_line));
+	free(*line);
+	*line = NULL;
 	return (0);
 }
