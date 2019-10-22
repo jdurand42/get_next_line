@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/22 15:10:15 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/22 15:49:27 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int main()
 // /		fd = 0;
 	while ((ret_gnl = get_next_line(fd4, &line) == 1))
 	{
-		printf("%d\n", ret_gnl);
-		printf("%s\n", line);
+//		printf("%d\n", ret_gnl);
+//		printf("%s\n", line);
 		;
 	}
 	//printf("%d\n", ret_gnl);
