@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/24 15:47:13 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/24 18:04:57 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int main()
 //	if (choice == 0)
 // /		fd = 0;
 
-	//printf("hors loop: %d\n", get_next_line(-25, &line));
-	while ((ret_gnl = get_next_line(fd4, &line) == 1))
+//	printf("hors loop: %d\n", get_next_line(-25, &line));
+	while ((ret_gnl = get_next_line(fd3, &line)) == 1)
 	{
 		printf("ret in loop: %d\n", ret_gnl);
 		printf("%s\n", line);
