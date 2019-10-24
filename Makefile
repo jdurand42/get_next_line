@@ -6,7 +6,7 @@
 #    By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 13:11:36 by jdurand           #+#    #+#              #
-#    Updated: 2019/10/22 15:56:28 by jdurand          ###   ########.fr        #
+#    Updated: 2019/10/24 15:16:56 by jdurand          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ re		:	fclean all
 
 sani	:
 			gcc -Wall -Wextra -Werror  \
-			-g3 -fsanitize=address -D BUFFER_SIZE=5000000 $(SRCS)
+			-g3 -fsanitize=address -D BUFFER_SIZE=1552 $(SRCS)
 
 exe		:
 			./a.out

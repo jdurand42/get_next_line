@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/22 16:07:06 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/24 16:41:41 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		parse_line3(char **line, char *b_line)
 		return (-1);
 	free(b_line);
 	b_line = NULL;
-	return (1);
+	return (0);
 }
 
 int		get_next_line(int fd, char **line)
@@ -80,9 +80,9 @@ int		get_next_line(int fd, char **line)
 			return (-1);
 	}
 	buffer[ret] = 0;
-	if (b_line[0] != 0)
-		return (parse_line3(line, b_line));
-	free(*line);
-	*line = NULL;
-	return (0);
+	//if (b_line[0] != 0)
+	return (parse_line3(line, b_line));
+	//free(*line);
+	//*line = NULL;
+	//return (0);
 }
