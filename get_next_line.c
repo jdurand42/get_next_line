@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 13:25:50 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/24 16:41:41 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/25 13:03:41 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		parse_line2(char *buffer, char *buffer_el, char **line, char *b_line)
 {
 	if (!(*line = ft_strnjoin(b_line, buffer, buffer_el - buffer)))
 		return (-1);
+	//printf("buffer_el: %s\n", buffer_el);
 	ft_strcpy(buffer, buffer_el + 1);
 	b_line = NULL;
 	return (1);
@@ -78,11 +79,9 @@ int		get_next_line(int fd, char **line)
 			return (parse_line2(buffer, buffer_el, line, b_line));
 		if (!(b_line = ft_strnjoin(b_line, buffer, BUFFER_SIZE)))
 			return (-1);
+	//	printf("%s\n", b_line);
 	}
 	buffer[ret] = 0;
-	//if (b_line[0] != 0)
+	//printf("%s\n", b_line);
 	return (parse_line3(line, b_line));
-	//free(*line);
-	//*line = NULL;
-	//return (0);
 }
