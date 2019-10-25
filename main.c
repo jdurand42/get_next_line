@@ -6,7 +6,7 @@
 /*   By: jdurand <jdurand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:40:37 by jdurand           #+#    #+#             */
-/*   Updated: 2019/10/25 13:06:48 by jdurand          ###   ########.fr       */
+/*   Updated: 2019/10/25 14:35:41 by jdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
 		return (0);
 	}
-	if ((fd2 = open("1.txt", O_RDONLY)) < 0)
+	if ((fd2 = open("empty.txt", O_RDONLY)) < 0)
 	{
 		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
 		return (0);
@@ -40,9 +40,9 @@ int main()
 		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
 		return (0);
 	}
-	if ((fd4 = open("bible5.txt", O_RDONLY)) < 0)
+	if ((fd4 = open("bible4.txt", O_RDONLY)) < 0)
 	{
-		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd: %d\n", fd);
+		fprintf(stderr, "Erreur lors de l'ouverture du fichier, fd4: %d\n", fd);
 		return (0);
 	}
 	//fprintf(stderr, "ficher ouvert, gg, fd: %d\n", fd4);
@@ -54,7 +54,7 @@ int main()
 // /		fd = 0;
 
 //	printf("hors loop: %d\n", get_next_line(-25, &line));
-	while ((ret_gnl = get_next_line(fd4, &line)) == 1)
+	while ((ret_gnl = get_next_line(fd2, &line)) == 1)
 	{
 		printf("%s\n", line);
 		printf("ret in loop: %d\n", ret_gnl);
@@ -64,4 +64,7 @@ int main()
 	}
 	printf("last ret: %d\n", ret_gnl);
 	printf("%s\n", line);
+	line[0] = 'f';
+	//line[2] = 'o';
+	free(line);
 }
